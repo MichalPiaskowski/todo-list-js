@@ -1,0 +1,159 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #eee;
+}
+
+.main-heading {
+	position: relative;
+	padding: 60px 25% 30px 25%;
+	background-color: rgb(21, 128, 216);
+}
+
+.main-heading h1 {
+	font-size: 60px;
+	text-transform: uppercase;
+	color: #fff;
+	text-shadow: 1px 1px 2px #333;
+}
+
+.search-task {
+	position: absolute;
+	top: 30px;
+	right: 5%;
+	width: 30px;
+	line-height: 120%;
+	font-size: 20px;
+	color: transparent;
+	background-color: rgb(21, 128, 216);	
+	background-image: url('../assets/images/magni.png');
+	background-repeat: no-repeat;
+	background-size: 20px auto;
+	background-position: center center;
+	border: none;
+	border-bottom: solid 2px #333;
+	cursor: pointer;
+	overflow: hidden;
+	transition: width linear 0.2s;
+}
+
+.add-task:focus,
+.btn-active:focus,
+.search-task:focus {
+	outline: none;
+}
+
+.search-task:focus {
+	width: 200px;
+	color: #fff;
+	background-position: right center;
+	cursor: text;
+}
+
+.search-task::placeholder {
+	color: transparent;
+}
+
+.search-task:focus::placeholder {
+	color: #fff;
+}
+.main-heading form {
+	font-size: 0px;
+}
+
+.add-task,
+.btn-active {
+	line-height: 200%;
+	font-size: 20px;
+	border: none;
+}
+
+.add-task {
+	width: 85%;
+	padding-left: 10px;
+}
+
+.btn-active {
+	width: 15%;
+	cursor: pointer;
+	color: #fff;
+	background-color: rgb(8, 96, 168);
+	transition: linear 0.2s;
+}
+
+.btn-active:hover {
+	background-color: rgb(92, 189, 100)
+}
+
+
+.task-count {
+	/* padding-left: 25%; */
+	line-height: 180%;
+	font-size: 30px;
+	text-align: center;
+	background-color: rgb(107, 68, 197);
+	color: white;
+}
+
+.tasks-list {
+	width: 60%;
+	margin: 0 auto;
+	list-style: none;
+}
+
+.task:nth-child(2n){
+	background-color: rgb(21, 128, 216);
+}
+
+.task {
+	position: relative;
+	font-size: 20px;
+	padding: 20px;
+	color: white;
+	background-color: rgb(92, 189, 100);
+	user-select: none;
+	cursor: pointer;
+}
+
+.task.checked {
+	padding-left: 40px;
+	text-decoration: line-through;
+	filter: grayscale(100%);
+}
+
+.task.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 40%;
+  left: 15px;
+  transform: rotate(45deg) translateY(-50%);
+  height: 15px;
+  width: 7px;
+}
+
+.task .fas {
+	position: absolute;
+	top: 50%;
+	right: 2%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	color: #333;
+	background-color: transparent;
+	cursor: pointer;
+	transition: linear 0.1s;
+}
+
+.task .fas:hover {
+	transform: translateY(-45%) scale(1.2);
+}
+
+
+
+

@@ -9,12 +9,16 @@ const searchTaskInput = document.querySelector('.search-task');
 const taskCount = document.querySelector('.task-count span');
 
 const removeTask = (e) => {
-	console.log('click');
+	console.log(e.target);
 	e.target.parentNode.remove();
 	const index = e.target.parentNode.dataset.key;
 	toDoList.splice(index, 1);
-	taskCount.textContent = listElements.length;
+	taskCount.textContent = toDoList.length;
 	renderList();
+};
+
+const taskIsDone = (e) => {
+	e.target.classList.toggle('checked');
 };
 
 const addNewTask = (e) => {
@@ -23,13 +27,13 @@ const addNewTask = (e) => {
 	if(taskTitle === '') return;
 	const task = document.createElement('li');
 	task.className = 'task';
-	task.innerHTML = taskTitle + '<button>Usuń</button>';
+	task.innerHTML = taskTitle + '<i class="fas fa-trash-alt">';
 	toDoList.push(task);
-
 	renderList();
 	addTaskInput.value = '';
-	taskCount.textContent = listElements.length;
-	task.querySelector('.task button').addEventListener('click', removeTask);
+	taskCount.textContent = toDoList.length;
+	task.querySelector('.fas').addEventListener('click', removeTask);
+	task.addEventListener('click', taskIsDone);
 };
 
 const renderList = () => {
@@ -41,6 +45,7 @@ const renderList = () => {
 };
 
 addTaskForm.addEventListener('submit', addNewTask);
+
 
 const searchTask = (e) => {
 	searchText = e.target.value.toLowerCase();
